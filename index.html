@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -6,142 +6,215 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>СПОРТ.LIVE | Прямые трансляции</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
-        body { background-color: #0b0e14; color: #fff; display: flex; flex-direction: column; min-height: 100vh; }
-        
-        header { background: #1e2530; padding: 15px; border-bottom: 2px solid #e01e37; text-align: center; }
-        .logo { font-weight: 800; font-size: 24px; text-transform: uppercase; margin-bottom: 10px; }
-        .logo span { color: #e01e37; }
-        
-        .match-selector { display: flex; gap: 5px; justify-content: center; flex-wrap: wrap; }
-        .match-btn { background: #232936; color: #fff; border: 1px solid #384256; padding: 8px 15px; border-radius: 4px; cursor: pointer; font-weight: 700; transition: 0.2s; }
-        .match-btn:hover { background: #2f3749; }
-        .match-btn.active { background: #e01e37; border-color: #e01e37; }
-
-        .container { display: flex; flex: 1; padding: 20px; gap: 20px; max-width: 1400px; margin: 0 auto; width: 100%; }
-        .video-column { flex: 3; display: flex; flex-direction: column; gap: 15px; }
-        .video-box { aspect-ratio: 16 / 9; background: #000; border-radius: 8px; overflow: hidden; }
-        #player { width: 100%; height: 100%; border: none; }
-
-        /* Кнопки Донат и Канал */
-        .controls-panel { display: flex; gap: 10px; flex-wrap: wrap; }
-        .btn { padding: 12px 20px; border-radius: 6px; text-decoration: none; color: #fff; font-weight: 700; font-size: 14px; text-align: center; transition: 0.3s; flex: 1; min-width: 200px; }
-        .btn-donate { background: #e01e37; }
-        .btn-donate:hover { background: #c0182e; }
-        .btn-channel { background: #0088cc; }
-        .btn-channel:hover { background: #006699; }
-
-        .chat-box { flex: 1; min-width: 300px; height: 550px; background: #131722; border-radius: 8px; overflow: hidden; border: 1px solid #232936; }
-        #chatIframe { width: 100%; height: 100%; border: none; }
-
-        @media (max-width: 800px) { 
-            .container { flex-direction: column; } 
-            .chat-box { height: 400px; }
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
         }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            color: #e50914;
+            margin: 0 0 15px 0;
+            font-size: 28px;
+            text-transform: uppercase;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .match-btn {
+            background-color: #333333;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        .match-btn:hover {
+            background-color: #555555;
+        }
+
+        .match-btn.active {
+            background-color: #e50914;
+        }
+
+        .main-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .player-section {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .chat-section {
+            flex: 1;
+            min-width: 280px;
+            height: 450px;
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+            border-radius: 8px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            max-width: 1200px;
+            margin: 20px auto 0 auto;
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: opacity 0.2s;
+        }
+
+        .action-btn:hover {
+            opacity: 0.9;
+        }
+
+        .btn-donate {
+            background-color: #e50914;
+        }
+
+        .btn-tg {
+            background-color: #0088cc;
+        }
+
+        /* --- БЛОК СПОНСОРОВ --- */
         .sponsors-section {
-    max-width: 1200px;
-    margin: 30px auto 10px auto;
-    padding-top: 20px;
-    border-top: 1px solid #333333;
-    text-align: center;
-}
+            max-width: 1200px;
+            margin: 30px auto 10px auto;
+            padding-top: 20px;
+            border-top: 1px solid #333333;
+            text-align: center;
+        }
 
-.sponsors-title {
-    font-size: 13px;
-    color: #888888;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 15px;
-}
+        .sponsors-title {
+            font-size: 13px;
+            color: #888888;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+        }
 
-.sponsors-grid {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
+        .sponsors-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
 
-.sponsor-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 8px 16px;
-    background-color: #1e1e1e;
-    border-radius: 6px;
-    text-decoration: none;
-    color: #aaaaaa;
-    font-size: 14px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    border: 1px solid #2a2a2a;
-}
+        .sponsor-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 8px 16px;
+            background-color: #1e1e1e;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #aaaaaa;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: 1px solid #2a2a2a;
+        }
 
-.sponsor-item:hover {
-    border-color: #e50914;
-    color: #ffffff;
-}
+        .sponsor-item:hover {
+            border-color: #e50914;
+            color: #ffffff;
+        }
 
-.sponsor-logo {
-    max-height: 35px;
-    max-width: 120px;
-    object-fit: contain;
-}
-
-
-
-Сегодня
-
-
+        .sponsor-logo {
+            max-height: 35px;
+            max-width: 120px;
+            object-fit: contain;
+        }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">СПОРТ<span>.LIVE</span></div>
-        <div class="match-selector">
-            <!-- Кнопки переключения. При клике вызывается функция switchMatch с номером матча -->
-            <button class="match-btn active" onclick="switchMatch(1)">МАТЧ 1</button>
-            <button class="match-btn" onclick="switchMatch(2)">МАТЧ 2  </button>
-            <button class="match-btn" onclick="switchMatch(3)">МАТЧ 3 </button>
-            <button class="match-btn" onclick="switchMatch(4)">МАТЧ 4 </button>
+    <div class="header">
+        <h1>СПОРТ.LIVE</h1>
+<div class="controls">
+            <button class="match-btn" onclick="switchMatch(1)">МАТЧ 1</button>
+            <button class="match-btn" onclick="switchMatch(2)">МАТЧ 2</button>
+            <button class="match-btn" onclick="switchMatch(3)">МАТЧ 3</button>
+            <button class="match-btn" onclick="switchMatch(4)">МАТЧ 4</button>
             <button class="match-btn" onclick="switchMatch(5)">МАТЧ 5</button>
             <button class="match-btn" onclick="switchMatch(6)">МАТЧ 6</button>
         </div>
-    </header>
+    </div>
 
-    <div class="container">
-        <section class="video-column">
-            <div class="video-box">
-                <!-- Сюда загружается плеер выбранного матча -->
-                <iframe id="player" src="" allowfullscreen allow="autoplay; encrypted-media"></iframe>
-            </div>
-            
-            <div class="controls-panel">
-                <!-- Ссылки на донат и телеграм (замените на свои) -->
-                <a href="https://www.donationalerts.com/r/alex6548416416" target="_blank" class="btn btn-donate">💰 ПОДДЕРЖАТЬ ПРОЕКТ (ДОНАТ)</a>
-                <a href="https://t.me/tyty67676767" target="_blank" class="btn btn-channel">📢  ПОДПИСАТЬСЯ НА ТГ-КАНАЛ</a>
+    <div class="main-container">
+        <!-- Секция плеера -->
+        <div class="player-section">
+            <iframe id="player" src="" allowfullscreen></iframe>
+        </div>
 
-</div>
-        </section>
-        
-        <section class="chat-box">
-            <!-- Сюда загружается чат выбра
-
-нного матча -->
+        <!-- Секция чата -->
+        <div class="chat-section">
             <iframe id="chatIframe" src=""></iframe>
-        </section>
+        </div>
+    </div>
+
+    <!-- Кнопки действий -->
+    <div class="action-buttons">
+        <a href="#" class="action-btn btn-donate">ПОДДЕРЖАТЬ ПРОЕКТ (ДОНАТ)</a>
+        <a href="#" class="action-btn btn-tg">ПОДПИСАТЬСЯ НА ТГ-КАНАЛ</a>
+    </div>
+
+    <!-- БЛОК СПОНСОРОВ -->
+    <div class="sponsors-section">
+        <div class="sponsors-title">Спонсоры и партнеры</div>
+        <div class="sponsors-grid">
+            <a href="https://example.com" target="_blank" class="sponsor-item">Спонсор 1</a>
+            <a href="https://example.com" target="_blank" class="sponsor-item">Спонсор 2</a>
+            <a href="https://example.com" target="_blank" class="sponsor-item">Спонсор 3</a>
+        </div>
     </div>
 
     <script>
-        // 1. СЮДА ВСТАВЬТЕ ССЫЛКИ НА ВАШИ ТРАНСЛЯЦИИ (вместо существующих примеров)
+        // 1. ССЫЛКИ НА ТРАНСЛЯЦИИ (вместо существующих примеров)
         const streams = {
-            1: "https://mgeu-kirov.ru/upload/iblock/f76/gsdpjenau6dr0kswwr84f4gu7kcez0zf/Screenshot_44.jpg", // Ссылка для Матча 1
-            2: "https://mgeu-kirov.ru/upload/iblock/f76/gsdpjenau6dr0kswwr84f4gu7kcez0zf/Screenshot_44.jpg", // Ссылка для Матча 2
-            3: "https://mgeu-kirov.ru/upload/iblock/f76/gsdpjenau6dr0kswwr84f4gu7kcez0zf/Screenshot_44.jpg",   // Ссылка для Матча 3
-            4: "https://mgeu-kirov.ru/upload/iblock/f76/gsdpjenau6dr0kswwr84f4gu7kcez0zf/Screenshot_44.jpg", // Ссылка для Матча 4
-            5: "https://mgeu-kirov.ru/upload/iblock/f76/gsdpjenau6dr0kswwr84f4gu7kcez0zf/Screenshot_44.jpg", // Ссылка для Матча 5
-            6: "https://mgeu-kirov.ru/upload/iblock/f76/gsdpjenau6dr0kswwr84f4gu7kcez0zf/Screenshot_44.jpg"  // Ссылка для Матча 6
+            1: "https://mgeu-kirov.ru/upload/iblock/f76/gsdpjenau6dr0kswwr84f4gu7kcez0zf/Screenshot_44.jpg",
+            2: "https://mgeu-kirov.ru/upload/iblock/f76/gsdpjenau6dr0kswwr84f4gu7kcez0zf/Screenshot_44.jpg",
+            3: "https://mgeu-kirov.ru/upload/iblock/f76/gsdpjenau6dr0kswwr84f4gu7kcez0zf/Screenshot_44.jpg",
+            4: "https://mgeu-kirov.ru/upload/iblock/f76/gsdpjenau6dr0kswwr84f4gu7kcez0zf/Screenshot_44.jpg",
+            5: "https://mgeu-kirov.ru/upload/iblock/f76/gsdpjenau6dr0kswwr84f4gu7kcez0zf/Screenshot_44.jpg",
+            6: "https://mgeu-kirov.ru/upload/iblock/f76/gsdpjenau6dr0kswwr84f4gu7kcez0zf/Screenshot_44.jpg"
         };
 
         // 2. СЮДА ВСТАВЬТЕ ССЫЛКИ НА СВОИ ЧАТЫ
@@ -180,3 +253,10 @@
     </script>
 </body>
 </html>
+```
+
+
+
+
+
+
