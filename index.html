@@ -38,55 +38,61 @@
             .chat-box { height: 400px; }
         }
  /* --- БЛОК СПОНСОРОВ --- */
-        .sponsors-section {
-            max-width: 12000px;
-            margin: 300px auto 100px auto;
-            padding-top: 200px;
-            border-top: 10px solid #333333;
-            text-align: center;
-        }
+.sponsors-section {
+    max-width: 1200px;
+    margin: 40px auto 20px auto;
+    padding-top: 25px;
+    border-top: 1px solid #333333;
+    text-align: center;
+}
 
-        .sponsors-title {
-            font-size: 13px;
-            color: #888888;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 15px;
-        }
+.sponsors-title {
+    font-size: 14px;
+    color: #888888;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
 
-        .sponsors-grid {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
+.sponsors-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+    flex-wrap: wrap;
+}
 
-        .sponsor-item {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 8px 16px;
-            background-color: #1e1e1e;
-            border-radius: 6px;
-            text-decoration: none;
-            color: #aaaaaa;
-            font-size: 14px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            border: 1px solid #2a2a2a;
-        }
+.sponsor-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 25px;
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border: 1px solid #2a2a2a;
+}
 
-        .sponsor-item:hover {
-            border-color: #e50914;
-            color: #ffffff;
-        }
+.sponsor-item:hover {
+    border-color: #e50914;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(229, 9, 20, 0.25);
+}
 
-        .sponsor-logo {
-            max-height: 35px;
-            max-width: 120px;
-            object-fit: contain;
-        }
+/* Увеличенный размер логотипов */
+.sponsor-logo {
+    height: 60px; /* Вы можете увеличить до 70-80px при необходимости */
+    width: auto;
+    max-width: 220px;
+    object-fit: contain;
+    filter: grayscale(40%);
+    transition: filter 0.3s ease;
+}
+
+.sponsor-item:hover .sponsor-logo {
+    filter: grayscale(0%);
+}
     </style>
 </head>
 <body>
@@ -116,14 +122,20 @@
                 <a href="https://www.donationalerts.com/r/alex6548416416" target="_blank" class="btn btn-donate">💰 ПОДДЕРЖАТЬ ПРОЕКТ (ДОНАТ)</a>
                 <a href="https://t.me/tyty67676767" target="_blank" class="btn btn-channel">📢  ПОДПИСАТЬСЯ НА ТГ-КАНАЛ</a>
                 </div>
-<!-- БЛОК СПОНСОРОВ -->
-    <div class="sponsors-section">
-        <div class="sponsors-title">Спонсоры и партнеры</div>
-        <div class="sponsors-grid">
-            <a href="https://example.com" target="_blank" class="sponsor-item">Спонсор 1</a>
-            <a href="https://example.com" target="_blank" class="sponsor-item">Спонсор 2</a>
-            <a href="https://example.com" target="_blank" class="sponsor-item">Спонсор 3</a>
-        </div>
+            <!-- БЛОК СПОНСОРОВ -->
+<div class="sponsors-section">
+    <div class="sponsors-title">Спонсоры и партнеры</div>
+    <div class="sponsors-grid">
+        <a href="https://example.com" target="_blank" class="sponsor-item">
+            <img src="https://via.placeholder.com/200x80/1e1e1e/FFFFFF?text=LOGO+1" alt="Спонсор 1" class="sponsor-logo">
+        </a>
+        <a href="https://example.com" target="_blank" class="sponsor-item">
+            <img src="https://via.placeholder.com/200x80/1e1e1e/FFFFFF?text=LOGO+2" alt="Спонсор 2" class="sponsor-logo">
+        </a>
+        <a href="https://example.com" target="_blank" class="sponsor-item">
+            <img src="https://via.placeholder.com/200x80/1e1e1e/FFFFFF?text=LOGO+3" alt="Спонсор 3" class="sponsor-logo">
+        </a>
+    </div>
 </div>
         </section>
         
